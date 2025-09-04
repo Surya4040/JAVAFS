@@ -1,0 +1,73 @@
+package com.examly;
+
+import java.util.Scanner;
+
+public class CafeteriaBillingSystem {
+    public static void main( String[] args )
+    {
+        Scanner scan=new Scanner(System.in);
+
+        int itemNumber;
+        int quantity;
+        double totalbill=0.0;
+
+        do{
+            System.out.print("Enter item number (0 to finish): ");
+            itemNumber=scan.nextInt();
+
+            if(itemNumber ==0){
+                break;
+            }
+
+            System.out.print("Enter quantity: ");
+            quantity=scan.nextInt();
+
+            double subtotal=calculateSubtotal(itemNumber, quantity);
+            totalbill+=subtotal;
+
+            switch (itemNumber) {
+                case 1:
+                    System.out.println("Subtotal for Coffee (x" + quantity + "): Rs" + subtotal);
+                    break;
+                case 2:
+                    System.out.println("Subtotal for Sandwich (x" + quantity + "): Rs" + subtotal);
+                    break;
+                case 3:
+                    System.out.println("Subtotal for Burger (x" + quantity + "): Rs" + subtotal);
+                    break;
+                default:
+                    System.out.println("Invalid item selected.");
+                    break;
+            }
+
+        }while(itemNumber !=0);
+
+        System.out.printf("Total Bill: Rs%.2f%n", totalbill);
+
+        scan.close();
+
+    }    
+      
+
+
+        public static double calculateSubtotal(int itemNumber,int quantity){
+            double price=0.0;
+            switch (itemNumber) {
+                case 1:
+                price=50;
+                break;
+                case 2:  
+                price=70;
+                break;
+                case 3:
+                price=100;
+                break;
+                default:
+                    break;
+            }
+
+            return price*quantity;
+        }
+    
+    }
+
