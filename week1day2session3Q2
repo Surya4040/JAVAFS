@@ -1,0 +1,37 @@
+package com.examly;
+
+public class InventoryChecker {
+
+    // Method to count even numbers in the array
+    private static int countEven(int[] numbers) {
+        int count = 0;
+        if (numbers != null) {
+            for (int n : numbers) {
+                if (n % 2 == 0) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    // Method to count odd numbers in the array
+    private static int countOdd(int[] numbers) {
+        int count = 0;
+        if (numbers != null) {
+            for (int n : numbers) {
+                if (n % 2 != 0) {
+                    count++;
+                }
+            }
+        }
+        return count;
+    }
+
+    // Optional main method (if you want to run directly)
+    public static void main(String[] args) {
+        int[] sample = {1, 2, 3, 4, 5, 6};
+        System.out.println("Even count: " + countEven(sample));
+        System.out.println("Odd count: " + countOdd(sample));
+    }
+}
